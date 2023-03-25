@@ -1,7 +1,7 @@
 // Bismillah...
 // waGive By MMMAlwi
 // Created : 2023-03-21 21:22
-// Updated : 2023-03-25 22:48
+// Updated : 2023-03-25 23:29
 
 import baileys from "@adiwajshing/baileys";
 const makeWASocket = baileys.default;
@@ -71,16 +71,16 @@ async function startSock() {
 
     if (!isMe && !isReact) {
       await sock.readMessages([msg.key]);
-      console.log(
-        chalk.green(`senderID    : ${senderID}
-memberID    : ${memberID}
-isChat      : ${isChat}
-isGrup      : ${isGrup}
-messageText : ${messageText}`)
-      );
+      //       console.log(
+      //         chalk.green(`senderID    : ${senderID}
+      // memberID    : ${memberID}
+      // isChat      : ${isChat}
+      // isGrup      : ${isGrup}
+      // messageText : ${messageText}`)
+      //       );
 
       if (senderID == grup) {
-      // if (senderID) {
+        // if (senderID) {
         if (isGrup && messageText.match(/.GIVE/gi)) {
           return await sock.sendMessage(
             senderID,
@@ -103,9 +103,7 @@ Semoga beruntung 😄`,
           let cek = -1;
           try {
             cek = await db.getIndex("/user", memberID, "wa");
-          } catch (error) {
-            console.log(error);
-          }
+          } catch {}
 
           if (cek != -1) {
             let user = await db.getData(`/user[${await cek}]`);
