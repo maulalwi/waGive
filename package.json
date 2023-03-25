@@ -1,0 +1,20 @@
+{
+  "name": "wagive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "waGive.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon waGive.js -w waGive.js"
+  },
+  "author": "Maulalwi",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@adiwajshing/baileys": "github:adiwajshing/baileys",
+    "chalk": "^5.2.0",
+    "node-json-db": "^2.1.5",
+    "pino": "^8.11.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
