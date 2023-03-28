@@ -1,7 +1,7 @@
 // Bismillah...
 // waGive By MMMAlwi
 // Created : 2023-03-21 21:22
-// Updated : 2023-03-25 23:29
+// Updated : 2023-03-29 04:28
 
 import baileys from "@adiwajshing/baileys";
 const makeWASocket = baileys.default;
@@ -79,8 +79,8 @@ async function startSock() {
       // messageText : ${messageText}`)
       //       );
 
-      if (senderID == grup) {
-        // if (senderID) {
+      // if (senderID == grup) {
+        if (senderID) {
         if (isGrup && messageText.match(/.GIVE/gi)) {
           return await sock.sendMessage(
             senderID,
@@ -149,7 +149,16 @@ Semoga beruntung 😄`,
             } catch {
               tag = [`${data.wa}@s.whatsapp.net`];
             }
-            let sp = String(data.id).length == 1 ? " " : "";
+            
+            let sp = String(data.id).length;
+            if(sp == 1){
+            	sp = "  "
+            }else if(sp == 2){
+            	sp = = " "
+            }else{
+            	sp = ""
+            }
+
             let text = out.text ? out.text : "";
             text = `${text}\n${sp}${data.id}. @${data.wa}`;
 
@@ -196,8 +205,18 @@ Semoga beruntung 😄`,
               if (!find) {
                 win.push(user.id);
                 total += 1;
+                
                 let sp = String(total).length == 1 ? " " : "";
-                let sp2 = String(user.id).length == 1 ? " " : "";
+                
+                let sp2 = String(data.id).length;
+		            if(sp2 == 1){
+		            	sp2 = "  "
+		            }else if(sp2 == 2){
+		            	sp2 = = " "
+		            }else{
+		            	sp2 = ""
+		            }
+
                 out += `${sp}${total}. ID: ${sp2}${user.id} WA: @${user.wa}\n`;
                 tag.push(`${user.wa}@s.whatsapp.net`);
               } else {
